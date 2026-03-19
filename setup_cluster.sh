@@ -33,9 +33,9 @@ cluster-config-file nodes.conf
 cluster-node-timeout 5000
 appendonly yes
 bind 0.0.0.0
-cluster-announce-ip $HOST_IP
-cluster-announce-port $port
-cluster-announce-bus-port $BUS_PORT
+#cluster-announce-ip $HOST_IP
+#cluster-announce-port $port
+#cluster-announce-bus-port $BUS_PORT
 EOF
 
   echo "✅ Config created for port $port (bus: $BUS_PORT)"
