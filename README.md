@@ -80,6 +80,10 @@ Master 3 (node-3:7002)  slots 10923 - 16383  ←→  Replica: node-4:7003
 ### 1. Place files
 
 Take pull
+```bash
+git clone https://github.com/meibraransari/redis-cluster-docker-compose.git
+cd redis-cluster-docker-compose
+```
 
 ### 2. Run setup
 
