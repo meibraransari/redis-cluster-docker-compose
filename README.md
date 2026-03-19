@@ -88,8 +88,8 @@ cd redis-cluster-docker-compose
 ### 2. Run setup
 
 ```bash
-chmod +x setup.sh
-./setup.sh
+chmod +x setup_cluster.sh
+./setup_cluster.sh
 ```
 
 This will:
