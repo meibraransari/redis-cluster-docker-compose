@@ -20,8 +20,10 @@ echo "✅ Directories 7000–7005 created"
 
 # ----------------------------------------
 echo ""
-echo "⚙️ Step 3: Generating redis.conf files"
+echo "⚙️ Generating redis.conf with dynamic IP"
 # ----------------------------------------
+HOST_IP=$(hostname -I | awk '{print $1}')
+echo "✅ Detected IP: $HOST_IP"
 for port in 7000 7001 7002 7003 7004 7005
 do
   cat <<EOF > $port/redis.conf
@@ -31,9 +33,16 @@ cluster-config-file nodes.conf
 cluster-node-timeout 5000
 appendonly yes
 bind 0.0.0.0
+cluster-announce-ip $HOST_IP
+cluster-announce-port $port
+cluster-announce-bus-port $BUS_PORT
 EOF
+
+  echo "✅ Config created for port $port (bus: $BUS_PORT)"
 done
-echo "✅ redis.conf files created for all nodes"
+
+echo ""
+echo "🎉 redis.conf files updated with dynamic IP!"
 
 # ----------------------------------------
 echo ""
