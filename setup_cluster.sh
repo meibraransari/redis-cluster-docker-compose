@@ -35,7 +35,7 @@ appendonly yes
 bind 0.0.0.0
 #cluster-announce-ip $HOST_IP
 #cluster-announce-port $port
-#cluster-announce-bus-port $BUS_PORT
+#cluster-announce-bus-port 1$port
 EOF
 
   echo "✅ Config created for port $port (bus: $BUS_PORT)"
