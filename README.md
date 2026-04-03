@@ -206,6 +206,10 @@ Open `http://<your-server-ip>:8080/stats`:
 Backend: redis_masters   → node-1, node-2, node-3  (health, sessions, throughput)
 Backend: redis_replicas  → node-4, node-5, node-6  (health, sessions, throughput)
 ```
+You should see:
+- 3 master
+- 3 slave (replica)
+
 ---
 
 ## General Management Commands
@@ -236,4 +240,11 @@ docker logs rediscluster-redis-node-1-1 -f
 docker ps
 ```
 
+## Test via HAProxy (your real entry point)
+
+```bash
+redis-cli -h <your-server-ip> -p 6379
+set test "via-haproxy"
+get test
+```
 
